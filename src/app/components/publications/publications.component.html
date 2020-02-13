@@ -1,0 +1,52 @@
+<div id="publications">
+        <div *ngFor="let publication of publications" class="item-publications">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                        <div class="image-user pull-left">
+                       
+
+                                <img src="{{ url + 'get-image-user/'+ publication.user.image }}"  *ngIf= "publication.user.image"/>
+                                <img src="assets/user.jpg"  *ngIf= "!publication.user.image"/>
+                  
+                                 
+                            </div>
+                        <div class="user-name">
+                            
+                            {{ publication.user.name + ' ' + publication.user.surname }}
+                        </div>
+                        <div class="date">
+                            {{ (publication.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo  }}
+
+                        </div>
+                        <h4 class="publication-text pull-left">
+                                {{ publication.text }}
+            
+                        </h4>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="col-lg-12 text-center" *ngIf="publications && publications.length ; else esperandoPublicaciones">
+            <p>
+                <button class="btn btn-success" (click)="viewMore()" *ngIf="!noMore">
+                    Ver más publicaciones
+                </button>
+
+            </p>
+        </div>
+        <ng-template #esperandoPublicaciones>
+
+            <div class="col-lg-12 text-center">
+                <p>
+                    <button class="btn btn-success" >
+                        <span class="glyphicon glyphicon-repeat fast-right-spinner"> cargando..</span>
+                    </button>
+    
+                </p>
+            </div>
+        </ng-template>
+        
+    
+
+    </div>

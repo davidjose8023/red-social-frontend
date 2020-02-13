@@ -1,0 +1,35 @@
+<div class="col-lg-8">
+  <h1 class="h1-strong">
+    {{ title }}
+
+      
+  </h1>
+
+  
+
+  <div id="data-profile">
+    
+    <div class="avatar pull-left" *ngIf= "user">
+        <img src="{{ url + 'get-image-user/'+ user.image }}"  *ngIf= "user.image"/>
+        <img src="assets/user.jpg"  *ngIf= "!user.image"/>
+
+    </div>
+    <div class="user-name" *ngIf= "user">
+      <p class="name">
+        {{ user.name +' '+ user.surname }}
+      </p>
+      <p>
+        {{ user.nick}}
+      </p>
+      
+    </div>
+
+  
+
+
+  </div>
+  
+
+</div>
+<sidebar></sidebar>
+<div class="clearfix"></div>
